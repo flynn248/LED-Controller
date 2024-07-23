@@ -1,0 +1,6 @@
+@Led.Api_HostAddress = http://localhost:5299
+
+GET https://localhost:7075/WeatherForecast/
+Accept: application/json
+
+###

@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Led.Api", "Led.Api\Led.Api.csproj", "{49321D1B-B780-4E00-A036-0A3F3B67E8B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Led.Database.Ef", "Led.Database.Ef\Led.Database.Ef.csproj", "{E4DD9757-55C9-4C46-9FB8-99C098AB59DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{86C6B427-076A-47E4-AE87-8ACAF8739E38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A200BA49-8161-45AB-A94F-A0BB53597FC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6B8E9088-5D28-4648-928A-315E8E3DBE3B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Led.Database.Ef.Migrations", "Led.Database.Ef.Migrations\Led.Database.Ef.Migrations.csproj", "{C6051097-20B5-4F6E-A056-B917BDAABFE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		ApiDebug|Any CPU = ApiDebug|Any CPU
+		ApiRelease|Any CPU = ApiRelease|Any CPU
+		MigrationDebug|Any CPU = MigrationDebug|Any CPU
+		MigrationRelease|Any CPU = MigrationRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49321D1B-B780-4E00-A036-0A3F3B67E8B0}.ApiDebug|Any CPU.ActiveCfg = ApiDebug|Any CPU
+		{49321D1B-B780-4E00-A036-0A3F3B67E8B0}.ApiDebug|Any CPU.Build.0 = ApiDebug|Any CPU
+		{49321D1B-B780-4E00-A036-0A3F3B67E8B0}.ApiRelease|Any CPU.ActiveCfg = ApiRelease|Any CPU
+		{49321D1B-B780-4E00-A036-0A3F3B67E8B0}.ApiRelease|Any CPU.Build.0 = ApiRelease|Any CPU
+		{49321D1B-B780-4E00-A036-0A3F3B67E8B0}.MigrationDebug|Any CPU.ActiveCfg = MigrationDebug|Any CPU
+		{49321D1B-B780-4E00-A036-0A3F3B67E8B0}.MigrationRelease|Any CPU.ActiveCfg = MigrationRelease|Any CPU
+		{E4DD9757-55C9-4C46-9FB8-99C098AB59DE}.ApiDebug|Any CPU.ActiveCfg = ApiDebug|Any CPU
+		{E4DD9757-55C9-4C46-9FB8-99C098AB59DE}.ApiDebug|Any CPU.Build.0 = ApiDebug|Any CPU
+		{E4DD9757-55C9-4C46-9FB8-99C098AB59DE}.ApiRelease|Any CPU.ActiveCfg = ApiRelease|Any CPU
+		{E4DD9757-55C9-4C46-9FB8-99C098AB59DE}.ApiRelease|Any CPU.Build.0 = ApiRelease|Any CPU
+		{E4DD9757-55C9-4C46-9FB8-99C098AB59DE}.MigrationDebug|Any CPU.ActiveCfg = MigrationDebug|Any CPU
+		{E4DD9757-55C9-4C46-9FB8-99C098AB59DE}.MigrationDebug|Any CPU.Build.0 = MigrationDebug|Any CPU
+		{E4DD9757-55C9-4C46-9FB8-99C098AB59DE}.MigrationRelease|Any CPU.ActiveCfg = MigrationRelease|Any CPU
+		{E4DD9757-55C9-4C46-9FB8-99C098AB59DE}.MigrationRelease|Any CPU.Build.0 = MigrationRelease|Any CPU
+		{C6051097-20B5-4F6E-A056-B917BDAABFE5}.ApiDebug|Any CPU.ActiveCfg = ApiDebug|Any CPU
+		{C6051097-20B5-4F6E-A056-B917BDAABFE5}.ApiRelease|Any CPU.ActiveCfg = ApiRelease|Any CPU
+		{C6051097-20B5-4F6E-A056-B917BDAABFE5}.MigrationDebug|Any CPU.ActiveCfg = MigrationDebug|Any CPU
+		{C6051097-20B5-4F6E-A056-B917BDAABFE5}.MigrationDebug|Any CPU.Build.0 = MigrationDebug|Any CPU
+		{C6051097-20B5-4F6E-A056-B917BDAABFE5}.MigrationRelease|Any CPU.ActiveCfg = MigrationRelease|Any CPU
+		{C6051097-20B5-4F6E-A056-B917BDAABFE5}.MigrationRelease|Any CPU.Build.0 = MigrationRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{49321D1B-B780-4E00-A036-0A3F3B67E8B0} = {86C6B427-076A-47E4-AE87-8ACAF8739E38}
+		{E4DD9757-55C9-4C46-9FB8-99C098AB59DE} = {86C6B427-076A-47E4-AE87-8ACAF8739E38}
+		{C6051097-20B5-4F6E-A056-B917BDAABFE5} = {86C6B427-076A-47E4-AE87-8ACAF8739E38}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93029062-6654-4562-ACEE-902E79EDF36E}
+	EndGlobalSection
+EndGlobal
