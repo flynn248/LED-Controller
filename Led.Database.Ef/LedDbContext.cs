@@ -16,8 +16,9 @@ public class LedDbContext : DbContext
   }
 
   #region LED
+  public virtual DbSet<LedConfigStage> LedConfigStages { get; set; }
+  public virtual DbSet<LedNode> LedNodes { get; set; }
   public virtual DbSet<LedStrip> LedStrips { get; set; }
-  public virtual DbSet<LED> Leds { get; set; }
   public virtual DbSet<LedStripTypeList> LedStripTypes { get; set; }
   #endregion
 
@@ -25,9 +26,7 @@ public class LedDbContext : DbContext
   {
     optionsBuilder.AddInterceptors(new DateMetaDataInterceptor());
 
-    optionsBuilder.UseNpgsql();
-
-#if DEBUG
+#if APIDEBUG || MIGRATIONDEBUG
     optionsBuilder.EnableSensitiveDataLogging(true)
       .LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
 #endif
@@ -36,6 +35,13 @@ public class LedDbContext : DbContext
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
     modelBuilder.ApplyConfigurationsFromAssembly(typeof(LedDbContext).Assembly);
+
+    var modelForeignKeys = modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys());
+
+    foreach (var foreignKey in modelForeignKeys)
+    {
+      foreignKey.DeleteBehavior = DeleteBehavior.NoAction;
+    }
 
     base.OnModelCreating(modelBuilder);
   }

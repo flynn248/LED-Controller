@@ -2,20 +2,17 @@
 
 namespace Led.Database.Ef.EntityModel;
 
-public class LedStrip : IDateMetadataUtc
+public class LedConfigStage : IDateMetadataUtc
 {
   public int Id { get; set; }
   public string Name { get; set; }
-  public string Description { get; set; }
-  public uint LedCount { get; set; }
-  public int LedStripTypeId { get; set; }
+  public int SortOrder { get; set; }
+  public TimeSpan Duration { get; set; }
   public DateTime CreatedDateUtc { get; set; }
   public DateTime? ModifiedDateUtc { get; set; }
-  public virtual LedStripTypeList LedStripType { get; set; } = null!;
 
-  public LedStrip()
+  public LedConfigStage()
   {
     Name = string.Empty;
-    Description = string.Empty;
   }
 }

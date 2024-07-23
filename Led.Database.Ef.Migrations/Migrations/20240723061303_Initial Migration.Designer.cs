@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Led.Database.Ef.Migrations.Migrations
 {
     [DbContext(typeof(LedDbContext))]
-    [Migration("20240722055846_Initial Migration")]
+    [Migration("20240723061303_Initial Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace Led.Database.Ef.Migrations.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Led.Database.Ef.EntityModel.LED", b =>
+            modelBuilder.Entity("Led.Database.Ef.EntityModel.LedConfigStage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -33,14 +33,46 @@ namespace Led.Database.Ef.Migrations.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("HexCode")
+                    b.Property<DateTime>("CreatedDateUtc")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<TimeSpan>("Duration")
+                        .HasColumnType("interval");
+
+                    b.Property<DateTime?>("ModifiedDateUtc")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(9)
-                        .HasColumnType("character varying(9)");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Led", "led");
+                    b.ToTable("LedConfigStage", "led");
+                });
+
+            modelBuilder.Entity("Led.Database.Ef.EntityModel.LedNode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Rgba")
+                        .HasColumnType("integer")
+                        .HasColumnName("RGBA");
+
+                    b.Property<short?>("White")
+                        .HasColumnType("smallint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LedNode", "led");
                 });
 
             modelBuilder.Entity("Led.Database.Ef.EntityModel.LedStrip", b =>
@@ -78,17 +110,6 @@ namespace Led.Database.Ef.Migrations.Migrations
                     b.HasIndex("LedStripTypeId");
 
                     b.ToTable("LedStrip", "led");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDateUtc = new DateTime(1, 1, 1, 6, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "",
-                            LedCount = 0L,
-                            LedStripTypeId = 1,
-                            Name = ""
-                        });
                 });
 
             modelBuilder.Entity("Led.Database.Ef.EntityModel.LedStripTypeList", b =>
@@ -109,6 +130,9 @@ namespace Led.Database.Ef.Migrations.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.ToTable("LedStripTypeList", "led");
@@ -118,7 +142,8 @@ namespace Led.Database.Ef.Migrations.Migrations
                         {
                             Id = 1,
                             Description = "Individually addressable.",
-                            Name = "WS2812B"
+                            Name = "WS2812B",
+                            SortOrder = 1
                         });
                 });
 
@@ -127,7 +152,7 @@ namespace Led.Database.Ef.Migrations.Migrations
                     b.HasOne("Led.Database.Ef.EntityModel.LedStripTypeList", "LedStripType")
                         .WithMany()
                         .HasForeignKey("LedStripTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("LedStripType");

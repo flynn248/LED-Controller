@@ -19,7 +19,7 @@ public class LedDbContextFactory : IDesignTimeDbContextFactory<LedDbContext>
     var optionsBuilder = new DbContextOptionsBuilder<LedDbContext>();
     optionsBuilder.UseNpgsql(connectionString, options =>
     {
-      options.MigrationsAssembly(typeof(LedDbContextFactory).Assembly.FullName); // Worked. Put migrations in this assembly
+      options.MigrationsAssembly(typeof(LedDbContextFactory).Assembly.FullName);
     });
 
     return new LedDbContext(optionsBuilder.Options);

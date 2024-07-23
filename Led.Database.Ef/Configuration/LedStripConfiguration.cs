@@ -21,22 +21,5 @@ internal class LedStripConfiguration : IEntityTypeConfiguration<LedStrip>
     builder.HasOne(x => x.LedStripType)
       .WithMany()
       .HasForeignKey(x => x.LedStripTypeId);
-
-    builder.HasData(GetSeedData());
-  }
-
-  private IEnumerable<LedStrip> GetSeedData()
-  {
-    return
-    [
-      new LedStrip
-      {
-        Id = 1,
-        Description = string.Empty,
-        CreatedDateUtc = DateTime.MinValue.ToUniversalTime(),
-        Name = string.Empty,
-        LedStripTypeId = 1
-      }
-    ];
   }
 }

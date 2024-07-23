@@ -29,7 +29,8 @@ internal class LedStripTypeListConfiguration : IEntityTypeConfiguration<LedStrip
       {
         Id = 1,
         Name = "WS2812B",
-        Description = "Individually addressable."
+        Description = "Individually addressable.",
+        SortOrder = 1
       }
     ];
   }

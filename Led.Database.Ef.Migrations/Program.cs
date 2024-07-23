@@ -17,9 +17,9 @@ internal class Program
         context.Database.Migrate();
         Console.WriteLine("Migration Success!");
       }
-      catch (Exception)
+      catch (Exception ex)
       {
-        Console.WriteLine("Migration failed!");
+        Console.WriteLine($"Migration failed!\r\n{ex.Message}");
       }
     }
   }
