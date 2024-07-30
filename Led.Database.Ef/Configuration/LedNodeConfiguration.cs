@@ -14,5 +14,9 @@ internal class LedNodeConfiguration : IEntityTypeConfiguration<LedNode>
 
     builder.Property(x => x.Rgba)
       .HasColumnName("RGBA");
+
+    builder.HasOne<LedStrip>()
+      .WithMany(x => x.LedNodes)
+      .HasForeignKey(x => x.LedStripId);
   }
 }

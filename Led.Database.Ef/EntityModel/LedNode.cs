@@ -7,4 +7,5 @@ public class LedNode
   public int Id { get; set; }
   public int Rgba { get; set; }
   public short? White { get; set; }
+  public int LedStripId { get; set; }
 }
